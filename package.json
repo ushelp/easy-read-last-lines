@@ -1,0 +1,42 @@
+{
+	"name": "easy-read-last-lines",
+	"version": "2.0.0",
+	"description": "Read the last N lines in the file. (like tail -n)",
+	"main": "index.min.js",
+	"scripts": {},
+	"homepage": "https://github.com/ushelp/easy-read-last-lines#readme",
+	"author": "Ray <inthinkcolor@gmail.com>",
+	"directories": {
+		"dist": "dist",
+		"src": "src",
+		"demo": "demo",
+		"test": "test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ushelp/easy-read-last-lines.git"
+	},
+	"keywords": [
+		"read",
+		"last",
+		"lines",
+		"line",
+		"file",
+		"last line",
+		"last lines",
+		"read last lines",
+		"read last line",
+		"tail",
+		"tail-n",
+		"tail -n",
+		"tail n"
+	],
+	"bugs": {
+		"url": "https://github.com/ushelp/easy-read-last-lines/issues "
+	},
+	"license": "MIT",
+	"dependencies": {
+		"mz": "^2.7.0",
+		"tern": "^0.24.3"
+	}
+}
