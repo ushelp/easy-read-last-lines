@@ -1,16 +1,20 @@
 # Easy-Read-Last-Lines
 
-Read the last N lines in the file. (like tail -n)
+Read the last N lines in the file. (like tail -n) 
 
 ## Table of contents
 
-- [Easy-Read-Last-Lines](#easy-read-last-lines)
-  - [Table of contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Functions](#functions)
-  - [License](#license)
-  - [End](#end)
+- [Feature](#feature)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Functions](#functions)
+- [License](#license)
+- [End](#end)
+
+## Feature
+- Support setting character `encoding`
+- Compatible with newlines on different platforms/format: `\r`, `\n`, `\r\n`
+- Support get a `String` or `Buffer` object
 
 ## Installation
 
