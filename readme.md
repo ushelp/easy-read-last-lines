@@ -1,6 +1,6 @@
 # Easy-Read-Last-Lines
 
-Read the last N lines in the file. (like tail -n) 
+Read the last N lines in the file or text across platforms. (like tail -n) 
 
 ## Table of contents
 
@@ -12,9 +12,9 @@ Read the last N lines in the file. (like tail -n)
 - [End](#end)
 
 ## Feature
-- Support setting character `encoding`
 - Compatible with newlines on different platforms/format: `\r`, `\n`, `\r\n`
-- Support get a `String` or `Buffer` object
+- Support setting character `encoding`
+- Support get a `String` or `Buffer` object from file
 
 ## Installation
 
@@ -26,33 +26,91 @@ npm install easy-read-last-lines
 ## Usage
 
 ```JS
-// Read last lines of text (tail -n)
+const readLastLine = require('easy-read-last-lines');
+```
 
-// Asynchronous
-erll.read(filePath, 10).then(function(lines) {
+### Read last N lines from File
+
+```JS
+let fielPath='YOUR_FILE_PATH';
+
+// Asynchronously
+erll.readFromFile(filePath, 3).then(function(lines) {
     console.log(lines);
 }).catch(function(err) {
     console.log(err.message);
 });
 
-// Synchronous
-let lines = await erll.read(filePath, 10, 'utf8');
+// Synchronously
+let lines = await erll.readFromFile(filePath, 3, 'utf8');
 console.log(lines);
 
-// Read last lines buffer data
-let buffer = await erll.readBuffer(filePath, 1);
+```
+
+### Read last N lines buffer data from File
+
+```JS
+let fielPath='YOUR_FILE_PATH';
+
+// Asynchronously
+erll.readBufferFromFile(filePath, 1).then(function(buffer) {
+    console.log(buffer.toString('base64'));
+}).catch(function(err) {
+    console.log(err.message);
+});
+
+// Synchronously
+let buffer = await erll.readBufferFromFile(filePath, 1);
 console.log(buffer.toString('base64'));
 ```
-	
 
+### Read last N lines from Text
+
+```JS
+var text = `
+Easy 
+Read 
+Last
+Line`;
+var text2 = `Easy\nRead\nLast\nLine`
+var text3 = `Easy\r\nRead\r\nLast\r\nLine`
+
+console.log(erll.readFromText(text, 2));
+console.log(erll.readFromText(text2, 2));
+console.log(erll.readFromText(text3, 2));
+```
+
+### Convert multiline text to array
+
+```JS
+let fielPath='YOUR_FILE_PATH';
+
+var text4 = `Easy\nRead\rLast\r\nLine`;
+var text5 = `Easy\rRead\rLast\rLine`;
+console.log(erll.linesToArray(erll.readFromText(text4, 2)));
+console.log(erll.linesToArray(erll.readFromText(text5, 3)));
+
+let lines = await erll.readFromFile(filePath, 3, 'utf8');
+console.log(erll.linesToArray(lines));
+```
+	
 ## Functions
 
-- **read(filePath, maxLine, [encoding]): Promise**
+- **readFromFile(filePath, maxLine, [encoding]): Promise**
     - `filePath`: file path(direct or relative path to file)
-    - `maxLine`: max number of last lines to read in.
+    - `maxLine`: max number of last lines to read in
     - `encoding`: When converting between Buffers and strings, a character encoding may be specified. If no character encoding is specified, `UTF-8` will be used as the default. [buffers-and-character-encodings](https://nodejs.org/api/buffer.html#buffers-and-character-encodings)    
 
-- **readBuffer(filePath, maxLine): Promise**
+- **readBufferFromFile(filePath, maxLine): Promise**
+    - `filePath`: file path(direct or relative path to file)
+    - `maxLine`: max number of last lines to read in
+    
+- **readFromText(text, maxLine): String**
+    - `text`: multiline string
+    - `maxLine`: max number of last lines to read in
+
+- **linesToArray(text): Array**
+    - `text`: multiline string
     
 ## License
 MIT License
