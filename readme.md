@@ -26,7 +26,7 @@ npm install easy-read-last-lines
 ## Usage
 
 ```JS
-const readLastLine = require('easy-read-last-lines');
+const erll = require('easy-read-last-lines');
 ```
 
 ### Read last N lines from File
