@@ -3,7 +3,7 @@
  *
  * Read the last N lines in the file or text across platforms. (like tail -n)
  *
- * Version 3.0.0
+ * Version 3.0.1
  *
  * @author [ inthinkcolor@gmail.com ]
  *

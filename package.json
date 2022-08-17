@@ -1,6 +1,6 @@
 {
 	"name": "easy-read-last-lines",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"description": "Read the last N lines in the file or text across platforms. (like tail -n)",
 	"main": "index.js",
 	"scripts": {},
