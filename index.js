@@ -94,6 +94,7 @@ function _readFromFile(filePath, maxLine, encoding, returnBuffer) {
  * Read in the last `n` lines of a Text
  * @param  {string} Text
  * @param  {int}     maxLine max number of lines to read in.
+ * @return {promise} String
  */
 function _readFromText(text, maxLine) {
     let lineCount = 0;
@@ -120,9 +121,15 @@ function _readFromText(text, maxLine) {
     return i < 0 ? lastNLineText : lastNLineText.substring(1);
 }
 
+
 var EasyReadLastLines = {};
 EasyReadLastLines.readFromFile = function(filePath, maxLine, encoding) {
     return _readFromFile(filePath, maxLine, encoding, false);
+};
+EasyReadLastLines.readArrayFromFile = function(filePath, maxLine, encoding) {
+    return _readFromFile(filePath, maxLine, encoding, false).then(function(lines) {
+        return lines.split(/\r\n|\r|\n/g);
+    });
 };
 EasyReadLastLines.readBufferFromFile = function(filePath, maxLine) {
     return _readFromFile(filePath, maxLine, null, true);
@@ -130,8 +137,11 @@ EasyReadLastLines.readBufferFromFile = function(filePath, maxLine) {
 EasyReadLastLines.readFromText = function(text, maxLine) {
     return _readFromText(text, maxLine);
 };
+EasyReadLastLines.readArrayFromText = function(text, maxLine) {
+    return _readFromText(text, maxLine).split(/\r\n|\r|\n/g);
+};
 EasyReadLastLines.linesToArray = function(text) {
-    return text.split(/\r\n|\r|\n/g)
+    return text.split(/\r\n|\r|\n/g);
 };
 
 module.exports = EasyReadLastLines;

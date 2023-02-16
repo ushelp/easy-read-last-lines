@@ -13,6 +13,15 @@ declare namespace EasyReadLastLines{
 	 * @return Promise 
 	 */
 	function readFromFile(filePath : any, maxLine : any, encoding : any): Promise;
+    
+    /**
+     * 
+     * @param filePath 
+     * @param maxLine 
+     * @param encoding 
+     * @return Promise 
+     */
+    function readArrayFromFile(filePath : any, maxLine : any, encoding : any): Promise;
 		
 	/**
 	 * 
@@ -28,8 +37,16 @@ declare namespace EasyReadLastLines{
      * @param maxLine 
      * @return String 
      */
-    function readFromText(text : any, maxLine : any): Promise;
+    function readFromText(text : any, maxLine : any): String;
     
+    /**
+     * 
+     * @param text 
+     * @param maxLine 
+     * @return String 
+     */
+    function readArrayFromText(text : any, maxLine : any): Array;
+        
     /**
      * 
      * @param text 
